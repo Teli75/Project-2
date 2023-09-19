@@ -2,26 +2,24 @@
 Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
 */
-const listContainer = document.querySelector('.student-list');//same as author container
+//Global variables for list of students
+const listContainer = document.querySelector('.student-list');
+//Global variable for list of buttons
 const linkList = document.querySelector('.link-list');
 const itemsPerPage = 9;
-/*
-For assistance:
-   Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/data-pagination-and-filtering#instructions
-   Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
-*/
-
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
-//Renders student cards to page
+//Renders student cards to page depending on what number button is clicked
 function showPage(list, page) {
    const startIndex = (page * itemsPerPage) - itemsPerPage;
    const endIndex = (page * itemsPerPage) - 1;
 
+   //Sets listContainer to empty, so that student cards do not accumulate
    listContainer.innerHTML = '';
 
+   //Iterates through data array and uses properties of the array to create an html string
    for (let i = 0; i < list.length; i++) {
       if (i >= startIndex && i <= endIndex) {
 
@@ -35,8 +33,8 @@ function showPage(list, page) {
          <div class="joined-details">
             <span class="date">${data[i].registered.date}</span>
          </div>
-         </li>`;
-         //Create the DOM elements needed to display the information for each matching student as you iterate over the list parameter. 
+         </li>`
+         //Creates the DOM elements needed to display the information for each student
          listContainer.insertAdjacentHTML("beforeend", html);
       }
    }
@@ -51,22 +49,26 @@ function addPagination(list) {
    //select 9 students per page
    const numOfButtons = Math.ceil(list.length / itemsPerPage);
 
+   //Sets list of buttons to empty, so the buttons don't accumulate
    linkList.innerHTML= "";
    
-   //Creates a button for every page
+   //Creates a list of buttons 
    for (let i = 1; i <= numOfButtons; i++) {
       const html = `
          <li>
              <button type="button" >${i}</button>
          </li>`;
 
+      //Adds buttons to the ul (i.e. linklist)
       linkList.insertAdjacentHTML("beforeend", html);
       
    }
-   //add active class to first element
+   //Adds active class to first element as the starting point
    linkList.querySelector("button").classList.add("active");
 }
-
+/* Adds 'active' class to clicked button and remove it from set default.
+Calls the showPage function with new parameters based on user's clicks
+*/
 linkList.addEventListener("click", (event) => {
    const activeButton = linkList.querySelector(".active");
    const buttonClicked = event.target.closest("button");
@@ -79,13 +81,13 @@ linkList.addEventListener("click", (event) => {
 });
 
 
-function addSearch(){
-   const html = `<label for="search" class="student-search">
-   <span>Search by name</span>
-   <input id="search" placeholder="Search by name...">
-   <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
- </label>`;
-}
+// function addSearch(){
+//    const html = `<label for="search" class="student-search">
+//    <span>Search by name</span>
+//    <input id="search" placeholder="Search by name...">
+//    <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+//  </label>`;
+// }
 
    // Call functions
    addPagination(data);
