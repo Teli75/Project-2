@@ -89,6 +89,14 @@ linkList.addEventListener("click", (event) => {
 //  </label>`;
 // }
 
+// document.querySelector('header');
+
+// for (let i=0; i< ; i++)
+
+// listContainer.inser
+
+// const studentSearch = document.getElementById('')
+
    // Call functions
    addPagination(data);
    showPage(data, 1);
