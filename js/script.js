@@ -87,19 +87,32 @@ const html = `<label for="search" class="student-search">
           </label>`;
 
 //if text in input field is not empty and it equals 
-const search = document.getElementById('search');
-// console.log(search)
+const searchInput = document.getElementById('search');
+// console.log(searchInput);
 
+searchInput.addEventListener('keyup', e => {
+   let currentValue = e.target.value.toLowerCase();
+   console.log(currentValue);
+});
 
-// console.log(searchInput.value);
+searchFeature.insertAdjacentHTML("beforeend", html);
+//create an empty array that will be new new arg for showpage
+//loop through data array
+// for(let i=0; ){
 // if(searchInput.value !==0){
-   // if(data.names.first[i].includes(searchInput.value.toLowerCase())|| (data.names.last[i].includes(searchInput.value.toLowerCase())) ){
-   //    console.log('test');
-   // }
+//    if(data.names.first[i].includes(searchInput.value.toLowerCase())|| (data.names.last[i].includes(searchInput.value.toLowerCase())) ){
+//       add to new array
+//    } 
+   //if the new array.length > 0,
+   //addPagination(data);
+  // showPage(data, 1);
+// } else
+//make element and reset student link to empty string
+//}
 
 // }
    
-  searchFeature.insertAdjacentHTML("beforeend", html);
+  
 
 
 // const studentSearch = document.getElementById('')
