@@ -79,24 +79,30 @@ linkList.addEventListener("click", (event) => {
       showPage(data, buttonClicked.innerHTML);
    }
 });
+const searchFeature = document.querySelector('.header');
+const html = `<label for="search" class="student-search">
+            <span>Search by name</span>
+            <input type="text" id="search" placeholder="Search by name...">
+            <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+          </label>`;
+
+//if text in input field is not empty and it equals 
+const search = document.getElementById('search');
+// console.log(search)
 
 
-// function addSearch(){
-//    const html = `<label for="search" class="student-search">
-//    <span>Search by name</span>
-//    <input id="search" placeholder="Search by name...">
-//    <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
-//  </label>`;
+// console.log(searchInput.value);
+// if(searchInput.value !==0){
+   // if(data.names.first[i].includes(searchInput.value.toLowerCase())|| (data.names.last[i].includes(searchInput.value.toLowerCase())) ){
+   //    console.log('test');
+   // }
+
 // }
+   
+  searchFeature.insertAdjacentHTML("beforeend", html);
 
-// document.querySelector('header');
-
-// for (let i=0; i< ; i++)
-
-// listContainer.inser
 
 // const studentSearch = document.getElementById('')
-
    // Call functions
    addPagination(data);
    showPage(data, 1);
