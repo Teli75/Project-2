@@ -81,7 +81,7 @@ linkList.addEventListener("click", (event) => {
 });
 
 /*
-Attempted the bonus and got close, but sadly still confused.
+//Attempted the bonus and got close, but sadly still confused.
 const searchFeature = document.querySelector('.header');
 const html = `<label for="search" class="student-search">
             <span>Search by name</span>
@@ -115,17 +115,20 @@ searchButton.addEventListener('click', e => {
                newArray.push(student);
                if (newArray > 0){
                addPagination(newArray);
-               showPage(newArray, 1);
+               showPage(newArray, 1)
                }
             } else {
                student.parentNode.parentNode.style.display = 'none';
                //showPage(listContainer, 1);
             }
-            //listContainer = "";
+            // if (newArray.length == 0){
+            // //listContainer = "";
+            // showPage(dataArray, 1);
+            // }
          }
    });
    }
-*/
+
 
 
 
