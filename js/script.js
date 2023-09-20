@@ -79,6 +79,9 @@ linkList.addEventListener("click", (event) => {
       showPage(data, buttonClicked.innerHTML);
    }
 });
+
+/*
+Attempted the bonus and got close, but sadly still confused.
 const searchFeature = document.querySelector('.header');
 const html = `<label for="search" class="student-search">
             <span>Search by name</span>
@@ -86,33 +89,71 @@ const html = `<label for="search" class="student-search">
             <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
           </label>`;
 
-//if text in input field is not empty and it equals 
-const searchInput = document.getElementById('search');
-// console.log(searchInput);
+searchFeature.insertAdjacentHTML("beforeend", html);
 
+//When user types in search box the search function is called
+const searchInput = document.getElementById('search');
 searchInput.addEventListener('keyup', e => {
-   let currentValue = e.target.value.toLowerCase();
-   console.log(currentValue);
+  searchFunction();
 });
 
-searchFeature.insertAdjacentHTML("beforeend", html);
-//create an empty array that will be new new arg for showpage
-//loop through data array
-// for(let i=0; ){
-// if(searchInput.value !==0){
-//    if(data.names.first[i].includes(searchInput.value.toLowerCase())|| (data.names.last[i].includes(searchInput.value.toLowerCase())) ){
-//       add to new array
-//    } 
-   //if the new array.length > 0,
-   //addPagination(data);
-  // showPage(data, 1);
-// } else
-//make element and reset student link to empty string
-//}
+//When button in label element is clicked, search function is called
+const searchButton = document.querySelector('label button');
+searchButton.addEventListener('click', e => {
+   searchFunction();
+});
 
-// }
+   function searchFunction(){
+      let currentValue = searchInput.value.toLowerCase();
+      let students = document.querySelectorAll('h3');
+      students.forEach(student =>{
+         let newArray = [];
+
+         if (currentValue !== ''){
+            if(student.textContent.toLowerCase().includes(currentValue)){
+               // student.parentNode.parentNode.style.display = 'block';
+               newArray.push(student);
+               if (newArray > 0){
+               addPagination(newArray);
+               showPage(newArray, 1);
+               }
+            } else {
+               student.parentNode.parentNode.style.display = 'none';
+               //showPage(listContainer, 1);
+            }
+            //listContainer = "";
+         }
+   });
+   }
+*/
+
+
+
+/*
+   const label = document.querySelector('label');
+   label.addEventListener('click', e => {
+      if (e.target.tagName === 'BUTTON'){
+         const currentValue = searchInput.value.toLowerCase();
+         const students = document.querySelectorAll('h3');
+
+      students.forEach(student =>{
+         let emptyArray = [];
    
+         if (currentValue !== ''){
+            if(student.textContent.toLowerCase().includes(currentValue)){
+               student.parentNode.parentNode.style.display = 'block';
+               emptyArray.push(student);
+            } else {
+               student.parentNode.parentNode.style.display = 'none';
+            } 
+          }
+      });
+   }
   
+});
+*/
+
+
 
 
 // const studentSearch = document.getElementById('')
